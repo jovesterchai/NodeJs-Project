@@ -1,0 +1,20 @@
+<!--category user view -->
+<a href="/" style="margin-left:50px; font-size: 130%"> <- Back </a>
+<div class="container">
+    <h4> Categories</h4>
+    {{#if category}}
+        {{#each category}}
+        <div class="card card-body">
+            <h5 class="card-title">{{name}}</h5>
+<a href="/showSME/{{id}}" class='card-link' style="margin-left: 85%; margin-top: -3%"> View Products </a>
+        </div>
+        {{/each}}
+        {{/if}}
+</div>
+<script>
+    document.getElementById("butAddCategory").disabled = false;
+    function validate(){
+
+    }
+
+</script>

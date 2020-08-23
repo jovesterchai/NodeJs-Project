@@ -1,0 +1,40 @@
+<!-- category management -->
+<a href="/home" style="margin-left:50px; font-size: 130%"> <- Back </a>
+<div class="container">
+    <h4> Categories</h4>
+    <div class="card card-body">
+        <form action="/shop/addCategory" method="post" id="addCategory">
+            <div class="form-group">
+				<label for="catname">Category Name</label>
+				<input type="text" id="catname" class="form-control" name="catname" value="" required>
+                <button id="butAddCategory" type="submit" class="btn btn-primary">Add Category</button>
+			</div>
+        </form>
+    </div>
+    {{#if category}}
+        {{#each category}}
+        <div class="card card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <div style="display: flex">
+                <a href="/shop/edit/{{id}}" class="card-link">
+                    <i class="fas fa-pencil-alt"></i>
+                    Edit
+                </a>
+                <a href="/shop/delete/{{id}}" class="card-link" data-toggle="confirmation"
+                   data-title="Confirm delete?">
+                    <i class="far fa-trash-alt"></i>
+                    Delete
+                </a>
+            </div>
+<a href="/shop/listProducts/{{id}}" class='card-link' style="margin-left: 85%; margin-top: -3%"> View/Add Products </a>
+        </div>
+        {{/each}}
+        {{/if}}
+</div>
+<script>
+    document.getElementById("butAddCategory").disabled = false;
+    function validate(){
+
+    }
+
+</script>

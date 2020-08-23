@@ -1,0 +1,69 @@
+<div class="container">
+    {{#if sme}}
+    <div class="card card-body">
+        <h3 class="text-primary">Branch</h3>
+        {{#each sme}}
+        <div class="card border-primary mb-2 w-100 mx-auto">
+            <div class="card-header">
+                <h5 class="card-title">{{name}}</h5>
+            </div>
+            <div class='card-body'>
+                <div class='row'>
+                    <div class="col-sm-12 col-md-12 col-lg-8">
+<div class="row"> {{!-- subtitles, language... --}}
+<div class="col-sm-12 col-md-6 col-lg-3">
+<p class="font-italic">Email</p>
+<p class="text-info">
+{{email}}
+</p>
+</div>
+<div class="col-sm-12 col-md-6 col-lg-4">
+<p class="font-italic">Phone Number</p>
+<p class="text-info">
+{{phoneno}}
+</p>
+</div>
+<div class="col-sm-12 col-md-6 col-lg-2">
+<p class="font-italic">Website</p>
+<p class="text-info">{{website}}</p>
+</div>
+<div class="col-sm-12 col-md-6 col-lg-3">
+<p class="font-italic">address</p>
+<p class="text-info">{{address}}</p>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12 col-md-6 col-lg-10">
+<p class="font-italic">Category</p>
+<p class="text-info">{{category}}</p>
+</div>
+    <div class="col-sm-12 col-md-6 col-lg-10">
+        <p class="font-italic">Operating Hours</p>
+        <p class="text-info">{{operating_hours}}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-10">
+<a href="/shop/showCarousel/{{id}}" style="font-size: 120%">View products</a>
+</div>
+</div>
+</div>
+<div class="col-sm-12 col-md-6 col-lg-2">
+<p class="font-italic"></p>
+<a href="/sme/edit/{{id}}" class="card-link">
+<i class="fas fa-pencil-alt"></i>
+Edit
+</a>
+
+</div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <div class="card card-body">
+        <a href="/sme/addSME"> + Add Branch </a>
+    </div>
+    {{/if}}
+</div>

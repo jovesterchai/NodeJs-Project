@@ -1,0 +1,264 @@
+<link rel="stylesheet" href="/css/dashboard.css">
+<link rel="stylesheet" href="/css/modalDashboard.css">
+
+  <!-- Compiled and minified CSS -->
+<div class="row">
+  <div id="content" class="col s10 offset-s2">
+
+    <div class="row">
+      <div id="content_nav" class="col s12">
+        <div class="nav_header right">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+        <div id="profile" class="col s4">
+          <a class="action" href="/user/edit/{{user.id}}" style="position: absolute;">Edit Profile</a>
+          <div class="profile_header">
+            <img src="{{user.photoURL}}" alt="profile_picture" />
+              <h2>{{user.name}}</h2>
+              <p>{{user.group}}</p>
+          </div>
+          <div class="divider"></div>
+        
+        <div class="profile_information">
+            <h3 style="margin-top: 5px;" >Personal Information</h3>
+            <ul style="list-style: none;">
+              <li>
+                <h4>Email Address:</h4>
+                <p>{{user.email}}</p>
+              </li>
+              <li>
+                <h4>Gender:</h4>
+                <p>{{user.gender}}</p>
+              </li>
+              <li>
+                <h4>Phone Number:</h4>
+                <p>{{user.phoneNo}}</p>
+              </li>
+              <li>
+                <h4>Date of birth:</h4>
+                <p>{{user.dob}}</p>
+              </li>
+              <li>
+                <h4>Address:</h4>
+                <p>{{user.address}}, {{user.unitNo}}, {{user.postalCode}}</p>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="divider"></div>
+
+        </div>
+        <div id="profile_content" class="col s8">
+          <nav id="dashboardNav" style="width:143%">
+            <ul>
+              <li class="tab">
+                <a href="#" class="active">
+                  Feedback
+                </a>
+              </li>
+             
+              {{!-- <li class="tab">
+                <a href="/showDashboardWishlist" class="">
+                  Wishlist
+                </a>
+              </li> --}}
+              
+            </ul>
+            
+            <div class="nav_arrows">
+        </div>
+            
+          </nav>
+          
+          <div class="profile-content" style="min-height: 123.75%;width:1000px;">
+
+      
+                 {{#if feedback}}         
+              <table>
+                <thead>
+                  <tr>
+                    <th>What is your name?</th>
+                    <th>How satisfied were you with END.</th>
+                    <th>On a scale of 1-10 (1 being unlikely and 10 being most likely),would you recommend END. to a friend?</th>
+                    <th>What other products would you be interested in purchasing from us?</th>
+                    <th>How satisfied were you with the service overall?</th>
+                  </tr>
+                </thead>
+                {{#each feedback}}
+                <tbody>
+                  <tr>
+                    <td data-column="Last Name">{{feedback1}}</td>
+                    <td data-column="Last Name">{{feedback2}}</td>
+                    <td data-column="Last Name">{{feedback3}}</td>
+                    <td data-column="Last Name">{{feedback4}}</td>
+                    <td data-column="Last Name">{{feedback5}}</td>
+                    <td><div class="col-sm-12 col-md-6 col-lg-2">
+                      <p class="font-italic"></p>
+                      <a href="/edit/{{id}}" class="card-link">
+                        <i class="fas fa-pencil-alt"></i>
+                        Edit
+                      </a>
+                      </div></td>
+                      <td><div class="col-sm-12 col-md-6 col-lg-2"></div>
+                        <a href="/delete/{{id}}" class="card-link" data-toggle="confirmation"
+                          data-title="Confirm delete?">
+                          <i class="far fa-trash-alt"></i>
+                          Delete
+                        </a>
+                      </div>
+                      </td>
+                  </tr>
+                          
+                </tbody>
+                  {{/each}}
+               
+              </table>
+            
+            {{else}}
+            <div class="row" style="text-align: center; font-size:60px;">
+              <div class="col-lg-12 col-md-12 col-sm-12" style="margin-top:25%;">
+                <i class="fas fa-store"></i>
+                <p style="font-size:20px;">Feedback something!</p>
+              </div>
+            </div>
+
+          {{/if}}
+        </div>
+    </div><!-- .row profile -->
+
+  </div><!-- .s9 content -->
+    
+</div><!-- .row -->
+
+<script>
+
+// Test code
+
+{{#each product}}
+$('#modalBttn{{id}}').click(() => {
+    $('#progress{{id}}').each((_, progress) => {
+    
+    const steps = $('> div.right > div', progress{{id}});
+
+      $(document).ready(function() {
+        steps.removeClass(['current', 'prev']);
+        $('#1id{{id}}').addClass(
+          {{#ifEqual status 'PENDING'}}
+            ['current']
+          {{/ifEqual}}
+          );
+
+        $('#2id{{id}}').addClass(
+          {{#ifEqual status 'DELIVERING'}}
+            ['current']
+          {{/ifEqual}}
+          );
+          
+        $('#3id{{id}}').addClass(
+          {{#ifEqual status 'DELIVERED'}}
+            ['current']
+          {{/ifEqual}}
+          );
+
+      });
+
+
+  })
+});
+
+$('#myModal{{id}}').on('hidden.bs.modal', function () {
+  const steps = $('> div.right > div', progress{{id}});
+
+  steps.removeClass(['current', 'prev']);
+  $('#1id{{id}}').addClass(['current']);
+})
+{{/each}}
+
+</script>
+
+<style>table { 
+	width: 100%; 
+	border-collapse: collapse; 
+	margin:50px auto;
+	}
+
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+	background: #eee; 
+	}
+
+th { 
+	background: #555; 
+	color: white; 
+	font-weight: bold; 
+	}
+
+td, th { 
+	padding: 10px; 
+	border: 1px solid #ccc; 
+	text-align: left; 
+	font-size: 18px;
+	}
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	table { 
+	  	width: 100%; 
+	}
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		/* Label the data */
+		content: attr(data-column);
+
+		color: #000;
+		font-weight: bold;
+	}
+
+}</style>
+
+<script>$(document).ready(function () {
+  $('#dtBasicExample').DataTable({
+    "pagingType": "simple" // "simple" option for 'Previous' and 'Next' buttons only
+  });
+  $('.dataTables_length').addClass('bs-select');
+});</script>

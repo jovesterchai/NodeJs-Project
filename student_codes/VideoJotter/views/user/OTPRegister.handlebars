@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="/css/orgSignup.css">
+<link rel="stylesheet" href="/css/intlTelInput.css">
+
+<!-- multistep form -->
+<form id="msform" method="post" action="http://localhost:5000/user/OTP">
+    <!-- progressbar -->
+	<ul id="progressbar">
+		<li>Prerequisites</li>
+		<li>Details</li>
+		<li>Done!</li>
+	</ul>
+
+	<fieldset>
+		<h2 class="fs-title">2FA Authentication</h2>
+		<h3 class="fs-subtitle">Just need to make sure it's you. That's all.</h3>
+        <input value="{{user.phoneNo}}" style="padding-right: 6px; padding-left: 52px;" type="text" disabled/>
+        <input value="{{user.phoneNo}}" style="display:none;" id="number" style="padding-right: 6px; padding-left: 52px;" type="text" name="number"/>
+
+		<button type="submit" name="submit" class="submit action-button">Send OTP</button>
+	</fieldset>
+</form>
+<button style="display: none;" onclick="doit()" type="submit" name="submit" class="submit action-button">Click</button>
+<script src="/js/intlTelInput.min.js"></script>
+<script src="/js/intlTelInput-jquery.min.js"></script>
+<script src="/js/utils.js"></script>
+<script>
+    let input = document.getElementById("telephone");
+    let iti = intlTelInput(input);
+    //let number = iti.getNumber(intlTelInputUtils.numberFormat.E164);
+    window.intlTelInputGlobals.loadUtils("/js/utils.js");
+
+    window.intlTelInput(input,({
+    }));
+
+
+    function doit() {
+        let input = document.getElementById("telephone");
+        let iti = intlTelInput(input);
+        let number = iti.getNumber();
+        var isValid = iti.isValidNumber();
+        console.log(number);
+        console.log('Is valid: ' + isValid);
+    }
+</script>

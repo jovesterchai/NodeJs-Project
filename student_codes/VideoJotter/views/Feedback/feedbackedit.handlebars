@@ -1,0 +1,35 @@
+{{user.errors}}
+{{user.success_msg}}
+
+<div class="row">
+	<div class="col-md-8.5 mx-auto">
+		<div class="card card-body">
+			<img class="logo" src="/img/logo.png">
+			<h3 class="text-center">Feedback Form</h3>
+                <form action="/saveEditedfeedback/{{feedback.id}}?_method=PUT" method="post">
+                    <input type="hidden" name="_method" value="PUT">
+                <div class="form-group">
+					<label class="font-italic" for="feedback1">What is your name? </label>
+					<input class="form-control" id="feedback1" name="feedback1" onblur="titleCase()" value="{{feedback.feedback1}}" required>
+				</div>
+				<div class="form-group">
+					<label class="font-italic" for="feedback2">How satisfied were you with END.</label>
+					<input class="form-control" id="feedback2" name="feedback2" onblur="titleCase()" value="{{feedback.feedback2}}" required>
+				</div>
+				<div class="form-group">
+					<label for="feedback3">On a scale of 1-10 (1 being unlikely and 10 being most likely),would you recommend END. to a friend?</label>
+					<input type="text" name="feedback3" class="form-control" value="{{feedback.feedback3}}" required>
+				</div>
+				<div class="form-group">
+					<label for="feedback4">What other products would you be interested in purchasing from us?</label>
+					<input type="text" name="feedback4" class="form-control" value="{{feedback.feedback4}}" required>
+				</div>
+				<div class="form-group">
+					<label for="feedback5">How satisfied were you with the service overall?</label>
+					<input type="text" name="feedback5" class="form-control" value="{{feedback.feedback5}}" required>
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+	</div>
+</div>

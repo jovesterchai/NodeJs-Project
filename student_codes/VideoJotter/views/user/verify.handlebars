@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="/css/orgSignup.css">
+<link rel="stylesheet" href="/css/intlTelInput.css">
+
+<!-- multistep form -->
+<form id="msform" method="post" action="http://localhost:5000/user/verify">
+    <!-- progressbar -->
+	<ul id="progressbar">
+		<li>Prerequisites</li>
+		<li>Details</li>
+		<li>Done!</li>
+	</ul>
+
+	<fieldset>
+		<h2 class="fs-title">Before we enable 2FA</h2>
+		<h3 class="fs-subtitle">Just need to make sure it's you. That's all.</h3>
+        {{!-- <select id="org_type" name="org_type">
+            <option value="goods">Goods</option>
+            <option value="services">Services</option>
+            <option value="goods_services">Goods/Services</option>
+        </select> --}}
+		{{!-- <input value="{{user.phoneNo}}" style="padding-right: 6px; padding-left: 52px;" type="text" id="telephone" name="org_phone" placeholder="Phone" disabled/> --}}
+        <input value="{{user.phoneNo}}" style="padding-right: 6px; padding-left: 52px;" type="text" name="number" disabled/>
+        <input name="pin" required="" type="number" placeholder="1234" />
+        <input name="requestId" type="hidden" value="{{requestId}}"/>
+
+		<button type="submit" name="submit" class="submit action-button">Verify</button>
+	</fieldset>
+</form>
+<script src="/js/intlTelInput.min.js"></script>
+<script src="/js/intlTelInput-jquery.min.js"></script>
+<script src="/js/utils.js"></script>
+<script>
+    let input = document.getElementById("telephone");
+    let iti = intlTelInput(input);
+    //let number = iti.getNumber(intlTelInputUtils.numberFormat.E164);
+    window.intlTelInputGlobals.loadUtils("/js/utils.js");
+
+    window.intlTelInput(input,({
+    }));
+
+
+    function doit() {
+        let input = document.getElementById("telephone");
+        let iti = intlTelInput(input);
+        let number = iti.getNumber();
+        var isValid = iti.isValidNumber();
+        console.log(number);
+        console.log('Is valid: ' + isValid);
+    }
+</script>

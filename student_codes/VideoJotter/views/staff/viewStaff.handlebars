@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="/css/dashboard.css">
+<link rel="stylesheet" href="/css/modalDashboard.css">
+
+<!-- Compiled and minified CSS -->
+<div class="row">
+    <div id="content" class="col s10 offset-s2">
+
+        <div class="row">
+            <div id="content_nav" class="col s12">
+                <div class="nav_header right">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="profile" class="col s4">
+                <a class="action" href="/staff/manageStaff" style="position: absolute;">Edit Profile</a>
+                <div class="profile_header">
+                    <img src="{{user.photoURL}}" alt="profile_picture" />
+                    <h2>{{user.name}}</h2>
+                    <p>{{user.group}}</p>
+                </div>
+                <div class="divider"></div>
+
+                <div class="profile_information">
+                    <h3 style="margin-top: 5px;">Personal Information</h3>
+                    <ul style="list-style: none;">
+                        <li>
+                            <h4>Email Address:</h4>
+                            <p>{{user.email}}</p>
+                        </li>
+                        <li>
+                            <h4>Phone Number:</h4>
+                            <p>{{user.phoneNo}}</p>
+                        </li>
+                    </ul>
+                </div>

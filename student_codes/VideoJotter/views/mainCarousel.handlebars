@@ -1,0 +1,107 @@
+<style>
+    html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        font-family: Helvetica, Arial, sans-serif;
+        color: #333;
+    }
+    .main {
+        width: 100%;
+        height: 100%;
+        background-color: #f2f2f2;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    h1 {
+        margin: 0;
+        font-size: 40px;
+        margin-top: 35pt;
+        margin-left: 20pt;
+        font-weight: bold;
+    }
+    h2 {
+        margin: 0;
+        margin-left: 20pt;
+        margin-top: 30pt;
+        margin-bottom: 15pt;
+    }
+    h3 {
+        font-family: monospace;
+        font-weight: light;
+        margin: 0;
+        margin-left: 20pt;
+        margin-top: 15pt;
+        font-size: 16px;
+    }
+    h3 a:link, h3 a:visited, h3 a:active, h3 a:hover{
+        color: #333;
+    }
+    .row {
+        background-color: none;
+        width: calc(100% - 20pt);
+        height: 200pt;
+        margin-left: 20pt;
+        margin-bottom: 20pt;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space:nowrap
+    }
+    .item {
+        display: inline-block;
+        width: 250pt;
+        height: 200pt;
+        background-color: #fff;
+        border-radius: 6pt;
+        margin-right: 15pt;
+        transition: 0.2s ease-in-out;
+    }
+    .item:link, .item:visited, .item:active {
+        color: #333;
+        text-decoration: none;
+    }
+    .item:hover {
+        opacity: 0.75;
+        transform: scale(0.98);
+        color: #333;
+        text-decoration: none;
+    }
+    .image {
+        height: 150pt;
+        width: 250pt;
+        background-color: #ddd;
+        border-radius: 6pt 6pt 0 0;
+        background-size: cover;
+        background-position: center center;
+    }
+    .item_description {
+        margin: 0;
+        padding-top: 18pt;
+        font-size: 17px;
+        margin-left: 10pt;
+        margin-right: 10pt;
+        text-align: center;
+        font-family: monospace;
+    }
+</style>
+
+<div class="main">
+    <h1>Marketplace</h1>
+    <h3><a href="/">Explore your choices</a></h3>
+
+    <div class="row">
+                {{#if sme}}
+                    {{#each sme}}
+                        <div class="grid-item" style="border: 1px black; height: 50px; width: 175px; text-align: center">
+                            <a href="/showSME/{{id}}">
+                                <div class="grid-img">
+                                    <img src="{{images}}" style="max-width: 200px; max-height: 450px"/>
+                                </div>
+                                <div class="grid-footer" style="padding-left: 15px;">
+                                    <p>{{name}}</p>
+                                </div>
+                            </a>
+                        </div>
+                    {{/each}}
+                {{/if}}
+

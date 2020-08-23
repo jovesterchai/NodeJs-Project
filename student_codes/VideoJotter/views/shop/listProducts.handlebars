@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="/css/CSS1.css"/>
+<a href="/shop/showCarousel/1" style="margin-left:50px; font-size: 130%"> <- Back </a>
+<div class="container">
+    <h2>{{category.name}}</h2>
+    <h5 style='padding-left: 5px; margin-top: -5px; margin-bottom: 15px;'> Products</h5>
+    <div class="card card-body">
+				<a href="/shop/addProduct/{{category.id}}"> + Add Product </a>
+    </div>
+    <div class="grid-container">
+    {{#if product}}
+        {{#each product}}
+        <div class="card card-content grid-item" style="max-width: 200px">
+            <h5 class="card-title">{{name}}</h5>
+    <div class='card'>
+    <div class='card-content'><a href="#">
+        <div class='img' style="max-width: 200px; max-height: 450px">
+        <img src='{{images}}' style="max-width: 195px; max-height: 450px">
+        </div> </a>
+    </div>
+    <div class='card-description'>
+        <div class='cart'>
+            <span class='lnr lnr-cart'></span>
+        </div>
+        </div>
+        <div class='card-footer' style="display: block">
+            <p style="font-size: 60%"> {{name}} </p>
+            <p style="font-size: 60%"> ${{selling_price}} </p>
+        <p style="line-height: 20px">{{description}}</p>
+            <a href="/shop/editProduct/{{id}}" class="card-link" style="font-size: 50%">
+                <i class="fas fa-pencil-alt" style="font-size: 90%"></i>
+                Edit
+            </a>
+            <a href="/shop/deleteProd/{{id}}/{{category}}" class="card-link" data-toggle="confirmation"
+               data-title="Confirm delete?" style="font-size: 50%">
+                <i class="far fa-trash-alt" style="font-size: 90%"></i>
+                Delete
+            </a>
+    </div>
+    </div>
+        </div>
+        {{/each}}
+        {{/if}}
+    </div>
+</div>

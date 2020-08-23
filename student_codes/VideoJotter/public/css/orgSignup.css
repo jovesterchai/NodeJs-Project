@@ -1,0 +1,296 @@
+/*custom font*/
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+/*basic reset*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  /*Image only BG fallback*/
+  /*background = gradient + image pattern combo*/
+}
+
+body {
+  font-family: montserrat, arial, verdana;
+  background-color: #F3F9FF;
+}
+/*form styles*/
+#msform {
+  width: 400px;
+  margin: 50px auto;
+  text-align: center;
+  position: relative;
+}
+#msform fieldset {
+  background: white;
+  border: 0 none;
+  border-radius: 3px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  padding: 20px 30px;
+
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 10%;
+
+  /*stacking fieldsets above each other*/
+  position: absolute;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+  display: none;
+}
+/*inputs*/
+#msform input,
+#msform textarea {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: montserrat;
+  color: #2c3e50;
+  font-size: 13px;
+}
+
+/*inputs*/
+#msform button,
+#msform select {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: montserrat;
+  color: #2c3e50;
+  font-size: 13px;
+}
+
+/*buttons*/
+#msform .action-button {
+  width: 100px;
+  background: black;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 1px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+#msform .action-button:hover,
+#msform .action-button:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px black;
+}
+/*headings*/
+.fs-title {
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+.fs-subtitle {
+  font-weight: normal;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 20px;
+}
+/*progressbar*/
+#progressbar {
+  margin-bottom: 30px;
+  overflow: hidden;
+  /*CSS counters to number the steps*/
+  counter-reset: step;
+}
+#progressbar li {
+  list-style-type: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: 9px;
+  width: 33.33%;
+  float: left;
+  position: relative;
+}
+#progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 20px;
+  line-height: 20px;
+  display: block;
+  font-size: 10px;
+  color: #333;
+  background: white;
+  border-radius: 3px;
+  margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: white;
+  position: absolute;
+  left: -50%;
+  top: 9px;
+  z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+  /*connector not needed before the first step*/
+  content: none;
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,
+#progressbar li.active:after {
+  background: black;
+  color: white;
+}
+
+.subscription-container {
+  flex-direction: column;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 990px;
+}
+
+.subscription__title,
+.subscription__main-feature,
+.subscription__price {
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #85a9c1;
+}
+
+.subscription__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 20px;
+  color: #ff6600;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.subscription__icon {
+  margin-top: 10px;
+  font-size: 38px;
+  background: #ffb27f;
+  padding: 30px;
+  border-radius: 50%;
+}
+
+.subscription__price {
+  display: block;
+  width: 90%;
+  text-align: center;
+  text-transform: none;
+  font-size: 32px;
+  color: #262223;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eff1f3;
+}
+
+.subscription__price-month {
+  font-size: 18px;
+  color: #c8cdd1;
+}
+
+.subscription__list {
+  padding: 0 15px;
+  margin: 10px 0;
+  list-style-type: none;
+}
+
+.subscription__item {
+  display: flex;
+  margin: 20px 0;
+  font-size: 16px;
+  color: #666662;
+}
+
+.subscription__item-text {
+  color: #aeaeac;
+  font-size: 14px;
+}
+
+.icon-subscription {
+  color: #c8cdd1;
+  margin-right: 5px;
+}
+
+.subscription__button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Roboto, sans-serif;
+  width: 275px;
+  margin: 5px 0;
+  padding: 0;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.45);
+  transition: transform 0.5s;
+  cursor: pointer;
+  margin-left: 19px;
+}
+.subscription__button:after {
+  content: "SELECT";
+  display: block;
+  text-align: center;
+  padding: 10px;
+  color: #ff6600;
+  width: 80%;
+  border-radius: 5px;
+  margin-bottom: 25px;
+  border: solid 2px #ff6600;
+  transition: 0.5s;
+}
+
+input[type="radio"] {
+  display: none;
+}
+input[type="radio"]:checked + label:after {
+  background: #ff6600;
+  color: white;
+}
+input[type="radio"]:checked + label {
+  background: white;
+  transform: scale(1.09);
+  transition: transform 0.5s;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.65);
+}
+
+@keyframes pulse-animation {
+  to {
+    transform: scale(1.2);
+  }
+}
+
+input.action-button:disabled {
+  background-color: darkgrey !important;
+}
+
+input.action-button:disabled:hover {
+  box-shadow: none !important;
+}
+
+button.action-button:disabled {
+  background-color: darkgrey !important;
+}
+
+button.action-button:disabled:hover {
+  box-shadow: none !important;
+}

@@ -1,0 +1,57 @@
+<div class="container form__wrapper">
+	<h2>Edit Profile</h2>
+	<form action="/staff/saveEditedUser?_method=PUT" method="post">
+		<input type="hidden" name="_method" value="PUT">
+		<div class="form-group">
+			<label for="name">Name</label>
+			<input name="name" type="text" class="form-control" id="name" placeholder="Name" value="{{user.name}}"
+				onblur="checkName()">
+			<p style="display:none">Please input name</p>
+		</div><!-- /form-group name -->
+
+		<div class="form-group">
+			<label for="email">Email</label>
+			<input type="email" name="email" class="form-control" value="{{user.email}}" placeholder="Email"
+				onblur="checkName()" disabled>
+			<p style="display:none">Please input name</p>
+		</div>
+
+		<div class="form-group">
+			<label for="phoneNo">Phone Number</label>
+			<input name="phoneNo" type="text" class="form-control editInputField" id="phoneNo"
+				placeholder="Phone Number e.g. 98765432" value="{{user.phoneNo}}" onkeypress="check()"
+				onblur="checkName()">
+			<p style="display:none">Please input number</p>
+		</div><!-- /form-group phoneNo -->
+
+		<div class="form-group">
+			<label for="passwordc">Current Password</label>
+			<input name="password" type="password" class="form-control editInputField" id="currentPass"
+				placeholder="Enter your Password" value="{{user.password}}" onkeypress="check()" onblur="checkName()">
+			<p style="display:none">Please input password</p>
+		</div>
+
+		<div class="row">
+			<div class="form-group col-sm-4">
+				<input type="file" id="posterUpload" name="posterUpload" onchange="posterChange()"
+					accept="image/png,image/jpeg,image/jpg,image/gif">
+				{{!—- Poster image --}}
+				<img id="poster" src="{{user.photoURL}}" alt="" class="border img-thumbnail img-fluid"
+					style="height:20vh;width:auto">
+				{{!—- Hidden field to submit URL of poster to the server --}}
+				<input id="photoURL" type="hidden" name="photoURL" value="{{user.photoURL}}">
+				<div class="font-weight-bold text-danger small" id="posterErr" style="display: none;"></div>
+			</div>
+		</div>
+		<div class="form__btns">
+			<button id="staffresetPass" class="btn btn-outline-primary" type="button" class="btn btn-primary"
+				onclick="staffresetpass()">Reset Password</button>
+			<button id="editBttns2" class="btn btn-outline-primary" type="submit" class="btn btn-primary">Save</button>
+			<a href="/staff/delete" class="card-link" data-toggle="confirmation" data-title="Confirm delete?">
+				<button id="editBttns3" class="btn btn-outline-primary" type="submit" class="btn btn-primary">Delete
+					Account</button>
+			</a>
+	</form>
+
+</div><!-- /form__btns -->
+</div><!-- /container -->

@@ -1,0 +1,93 @@
+
+
+<div class="container">
+	<div class="card card-body">
+		<h3>Add Product to: {{category.name}}</h3>
+		<form action="/shop/createProduct/{{category.id}}" method="post" id="addProduct">
+		<div class="row"> {{!—- row 1--}}
+            <div class="col-lg-9">
+                <div class="form-group">
+                    <label class="font-italic" for="name">Product Name</label>
+                    <input class="form-control" type="text" id="name" name="name"></input>
+                </div>
+                <div class="form-group">
+                <label class="font-italic" for="description">Description</label>
+                <textarea class="form-control" type="text" id="description" rows="7" name="description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="font-italic" for="tags">Tags (list tags between commas) </label>
+                    <input class="form-control" type="text" id="tags" name="tags"> </input>
+                </div>
+                <div class="form-group">
+                <label class="font-italic" for="price">Cost Price</label>
+			    <input class="form-control" type="number" id="cost_price" name="cost_price"> </input>
+                </div>
+                <div class="form-group">
+                <label class="font-italic" for="price">Selling Price</label>
+			    <input class="form-control" type="number" id="selling_price" name="selling_price"> </input>
+                </div>
+                <div class="form-group">
+                    <label class="font-italic" for="supplier">Supplier </label>
+                    <input class="form-control" type="text" id="supplier" name="supplier"> </input>
+                </div>
+                <div class="form-group">
+                    <label class="font-italic" for="delivery_fee">Delivery Fee </label>
+                    <input class="form-control" type="text" id="delivery_fee" name="delivery_fee"> </input>
+                </div>
+            </div>
+
+
+            <div class="col-lg-3">
+                <input type="file" id="posterUpload" onchange="posterChangeGoods()" name="posterUpload" accept="image/png,
+ image/jpeg,image/jpg,image/gif">
+                    {{!—- Poster image --}}
+                    <img id="poster" src="/img/no-image.jpg" alt=""
+                         class="border img-thumbnail img-fluid" style="height:95%;width:100%">
+                <div class="font-weight-bold text-danger small" id="posterErr"
+                     style="display:none"></div>
+                {{!—- Hidden field to submit URL of poster to the server --}}
+                    <input id="posterURL" type="hidden" name="posterURL">
+            </div>
+
+         </div>
+<div class="form-group">
+<div class="row"> {{!—- row 2--}}
+<div class="col-12 col-sm-5 col-md-5 col-lg-6">
+{{!—- Date Release --}}
+			<label class="font-italic" for="in_stock">In Stock</label>
+			<input type="text" name="in_stock" id="in_stock"class="form-control" value="">
+
+</div>
+</div>
+</div>
+
+			<br>
+			<button id="butAddVideo" type="submit" class="btn btn-primary">Save
+			</button>
+		</form>
+</div>
+</div>
+<script>
+    $('#posterUpload').on('change', function(){
+    let image = $("#posterUpload")[0].files[0];
+    let formdata = new FormData();
+    formdata.append('posterUpload', image);
+    $.ajax({
+        url: '/shop/upload',
+            type: 'POST',
+        data: formdata,
+        contentType: false,
+        processData: false,
+        'success':(data) => {
+            $('#poster').attr('src', data.file);
+            $('#posterURL').attr('value', data.file);// sets posterURL hidden field
+            if(data.err){
+                $('#posterErr').show();
+                $('#posterErr').text(data.err.message);
+            } else{
+                $('#posterErr').hide();
+            }
+        }   
+    });
+});
+</script>

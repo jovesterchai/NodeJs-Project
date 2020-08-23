@@ -1,0 +1,194 @@
+    
+    .blackbar-top {
+        width: 100%;
+        height: 35px;
+        background-color: black;
+    }
+        
+    .logo {
+    padding: 0px 30px;
+    font-size: 200%;
+    font-weight: bold;
+    font-family: "Verdana";
+    display: inline-block;
+    
+    }
+    
+    .testlogo img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 150px;
+        width: 280px;
+        justify-content: center;
+    }
+    .top-bar {
+        text-align: center;
+        margin-top: 30px;
+    }
+    
+    .menua {
+        display: inline-block;
+        font-family: "Verdana";
+        font-size: 70%;
+    }
+    
+    .menua h4 {
+        display: inline-block;
+        letter-spacing: 3px;
+        padding: 0px 30px;
+        margin: -5px 0px -10px 0px;
+    }
+    
+    .menua h4 a {
+        color: black;
+        text-decoration: none;
+    }
+    
+    .home-filler {
+        font-family: "Verdana";
+        justify-content: center;
+    }
+    
+    .homefiller p {
+        color: black;
+    }
+    
+    .mission {
+        text-align: center;
+        font-family: "Verdana";
+    }
+    
+    .bigimage {
+        margin: 20px;
+    }
+    
+    
+    .grid-container {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(4, auto);
+    justify-content: center;
+    }
+    .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #b8b8b8;
+    margin: 30px;
+    font-size: 30px;
+    text-align: center;
+    }
+
+
+    .grid-item p {
+        color: black;
+        font-size: 50%;
+        letter-spacing: 1px;
+        line-height: 3px;
+    }
+
+
+    /*
+    
+    .footerrr {
+        width: auto;
+        height: 265px;
+        background-color: #000000;
+        bottom: 0;
+        padding: 50px 0px 0px 200px;
+        display: block;
+        color: white;
+        
+    }
+    .footerfiller {
+        margin: 20px 30px 15px 50px;
+        font-family: "Oswald";
+        letter-spacing: 3px;
+        font-size: 100%;
+        display: inline-block;
+        vertical-align: top;
+    }
+    
+    .footerfiller h4 {
+        line-height: 35px;
+        margin-top: -20px;
+    }
+    
+    .footerfiller h5 {
+        line-height: 25px;
+    }
+    .bottom-bar {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        font-size: 85%;
+    }
+    
+    .bottom-bar a {
+        color: white;
+    }
+    
+    .bottom-bar a:hover {
+        background-color: linear-gradient(	#ced9ed, 	#cfc7fa);
+    }
+    
+    .footerfiller a {
+        color: white;
+    }
+    
+    .footerfiller a:hover {
+        color: #00f264;
+    }
+    */
+    footer {
+            bottom: 0;
+            font-family: "Oswald";
+            height: 250px;
+            background-color: #000;
+            padding: 50px 0px 0px 150px;
+    }		
+        
+    .outer {
+    
+    width: 200px;
+    margin: left-side;
+    display: block;
+    background-color: white;
+    
+    /* set the font color here as a background color, in this case black
+      background-color: black; */
+    
+    }
+    
+    .bga {
+    text-align: center;
+    width: 0%;
+    transition: all 0.6s ease-out;
+    background: #3ebac6 background: -moz-linear-gradient(left, #3ebac6 0%, #8b539e 50%, #e53782 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #3ebac6), color-stop(50%, #8b539e), color-stop(100%, #e53782));
+    background: -webkit-linear-gradient(left, #3ebac6 0%, #8b539e 50%, #e53782 100%);
+    background: -o-linear-gradient(left, #3ebac6 0%, #8b539e 50%, #e53782 100%);
+    background: -ms-linear-gradient(left, #3ebac6 0%, #8b539e 50%, #e53782 100%);
+    background: linear-gradient(to right, #3ebac6 0%, #8b539e 50%, #e53782 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#3ebac6', endColorstr='#e53782', GradientType=1);
+    }
+    
+    .inner {
+    display: inline-block;
+    background-color: black;
+    mix-blend-mode: multiply;
+    padding-top: -20px;
+    width: 200px;
+    }
+    
+    .inner h4, p {
+    color: white;
+    font-size: 100%;
+    letter-spacing: 5px;
+    line-height: 20px;
+    text-align: left;
+    padding-top: -20px;
+    }
+    
+    .outer:hover .bga {
+    width: 100%;
+    }

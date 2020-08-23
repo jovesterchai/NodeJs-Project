@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+/* .modal-body {
+  height: 100%;
+} */
+
+.modal-content {
+  background: #333;
+}
+
+#myModalLabel {
+  color: white;
+}
+
+.outer {
+  height: 50vh;
+  min-width: 20vh;
+  flex: 1;
+}
+
+.progress.dark {
+  background: #333;
+  display: inline-flex;
+  height: 100%;
+  width: 100%;
+  padding: 5vh 10%;
+}
+.progress.dark > div {
+  display: flex;
+  flex-direction: column;
+  color: #ccc;
+}
+.progress.dark > div.left {
+  padding-right: 20px;
+  text-align: right;
+}
+.progress.dark > div.left div:last-of-type:after {
+  display: none;
+}
+.progress.dark > div.left div:after {
+  content: "";
+  background: rgba(211, 211, 211, 0.05);
+  border-radius: 2px;
+  position: absolute;
+  right: -20px;
+  top: 10px;
+  height: 101%;
+  width: 1px;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+}
+.progress.dark > div.right {
+  padding-left: 20px;
+}
+.progress.dark > div.right div.prev:after {
+  transition: none;
+}
+.progress.dark > div.right div.current {
+  color: white;
+  font-weight: bold;
+}
+.progress.dark > div.right div.current:before {
+  background: white;
+  padding: 10px;
+  transition: all 0.2s 0.15s cubic-bezier(0.175, 0.885, 0.32, 2);
+}
+.progress.dark > div.right div.current:after {
+  height: 0%;
+  transition: height .2s ease-out;
+}
+.progress.dark > div.right div.current ~ div {
+  color: #666;
+}
+.progress.dark > div.right div.current ~ div:before {
+  background: #666;
+  padding: 2.5px;
+}
+.progress.dark > div.right div.current ~ div:after {
+  height: 0%;
+  transition: none;
+}
+.progress.dark > div.right div:before {
+  content: "";
+  background: lightgray;
+  padding: 5px;
+  border-radius: 50%;
+  position: absolute;
+  left: -20px;
+  top: 10px;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  transition: padding 0.2s ease;
+}
+.progress.dark > div.right div:after {
+  content: "";
+  background: lightgray;
+  border-radius: 2px;
+  position: absolute;
+  left: -20px;
+  top: 10px;
+  height: 101%;
+  width: 2px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  transition: height 0.2s ease;
+}
+.progress.dark > div div {
+  flex: 1;
+  position: relative;
+  line-height: 20px;
+  cursor: default;
+  min-height: 30px;
+}
+.progress.dark > div div:last-of-type {
+  flex: 0;
+}
+
+.dark .done.current {
+  color: #ff6600 !important;
+}
+.dark .done.current:before {
+  background: #ff6600 !important;
+}
+
